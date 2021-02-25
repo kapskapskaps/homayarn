@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  
+  <title>Homa Yarn</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="assets/favicon.ico" type="image/png">
+
+  <!-- escape | in url query with %7C . See more https://developer.donnoval.ru/w3cvalidation/ -->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600%7CMontserrat&amp;display=swap" rel="stylesheet"> 
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    
+    <div class="header-top">
+      <div class="container">
+        <div class="d-flex">
+          <div class="p-2 flex-grow-1">
+            <a href="index.html" class="site-logo mx-auto d-block">
+              <img src="assets/homa.png" alt="Image" class="img-fluid">
+            </a>
+          </div>
+          <div class="p-2 align-self-center d-md-none">
+            <a href="#" class="ml-auto d-block site-menu-toggle js-menu-toggle text-black">
+              <span class="icon-menu h1"></span>
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+      
+      <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-md-block" role="banner">
+
+        <div class="container">
+          <div class="d-flex align-items-center">
+            
+            <div class="mx-auto">
+              <nav class="site-navigation position-relative text-left">
+                <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-md-block border-none">
+                  <li class="active"><a href="index.html" class="nav-link text-left">Главная</a></li>
+                  <li><a href="#products" class="nav-link text-left">Коллекция пряжи</a></li>
+                  <li><a href="#dostavka" class="nav-link text-left">Доставка</a></li>
+                  <li><a href="#feedback" class="nav-link text-left">Отзывы</a></li>
+                  <li><a href="#footer" class="nav-link text-left">Контакты</a></li>
+                </ul>                                                                                                                                                                                                                                                                                         
+              </nav>
+
+            </div>
+           
+          </div>
+        </div>
+
+      </div>
+    
+    </div>
+
+    
+    <div class="owl-carousel hero-slide owl-style">
+      <div class="intro-section container" style="background-image: url('assets/photo_1.jpg');">
+        <div class="row justify-content-center text-center align-items-center">
+          <div class="col-md-8">
+            <span class="sub-title">Высшее качество</span>
+            <h1>Homa Yarn</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="intro-section container" style="background-image: url('assets/photo_2.jpg');">
+        <div class="row justify-content-center text-center align-items-center">
+          <div class="col-md-8">
+            <span class="sub-title">!</span>
+            <h1>Пряжа в наличии</h1>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    
+    <div><a id="products"></a></div>
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 section-title text-center mb-5">
+            <h2 class="d-block">Коллекция пряжи</h2>
+            <p>Мы предлагаем пряжу самых известных брендов , наш ассортимент пряжи постоянно расширяется.
+Если Вас интересуют пряжа в мотках, наш интернет магазин предлагает купить пряжу с возможностью бесплатной доставки (при сумме заказа от 4500,00 руб.).
+Наших покупателей мы часто радуем приятными скидками, проводим акции и формируем специальные предложения на покупку тех или иных товаров.
+У нас можно купить сопутствующие товары: интернет магазин «Homa Yarn» реализует пуговицы и застежки, крючки и спицы – многие по ценам распродаж идентичных сайтов.
+            </p>
+          </div>
+        </div>
+        {% for category, wines in all_drinks.items() %}
+          <div class="col-12 section-title text-center mb-5">
+            <h2 class="d-block">{{category}}</h2>
+          </div>
+          <div class="row">
+            {% for wine in wines%}
+              <div class="col-lg-4 mb-5 col-md-6">
+                <div class="wine_v_1 text-center pb-4 pt-5">
+                  <img src="images/{{wine.Картинка}}" alt="Image" class="img-fluid">
+                    {%if wine.Акция %}
+                      <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
+                    {% endif %}
+                    <div>
+                      <h3 class="heading mt-3 mb-3 text-dark">{{wine.Название}}</h3>
+                      <p>
+                          Цвет - {{wine.Цвет}}<br/>
+                        <span class="price">Цена - {{wine.Цена}}</span>
+                      </p>
+                    </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div><a name="dostavka"></a></div>
+    
+    <div class="owl-carousel hero-slide owl-style">
+      <div class="intro-section container" style="background-image: url('assets/photo_4.jpg');">
+        <div class="row justify-content-center text-center align-items-center">
+          <div class="col-md-8">
+            <h1>Homa Yarn</h1>
+            <h1>Доставка</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="intro-section container" style="background-image: url('assets/photo_3.jpg');">
+        <div class="row justify-content-center text-center align-items-center">
+          <div class="col-md-8">
+            <h1>Безопасная доставка</h1>
+            <span class="sub-title">!</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">      
+          <div class="col-12 section-title text-center mb-5">
+            <h2 class="d-block">ИНФОРМАЦИЯ О ДОСТАВКЕ</h2>
+            
+            <p>
+Возможна доставка:Самовывоз - из г. Ступино. Курьерская Служба Сдэк - можно выбрать как самовывоз из ближайшего пункта выдачи так и доставку или экспресс доставку до двери.
+Доставка в области и регионы:
+В области и регионы отправляем только по предоплате! 
+Курьерской службой в пункты ПВЗ либо доставка до двери, обычная или Экспресс, выбрать способ доставки и увидеть ее стоимость можно при оформлении заказа.
+Через  ЕМС Почту России стоимость тоже можно узнать во время оформления заказа.
+Через Почту России посылкой, стоимость можно узнать при оформлении заказа, главное ввести индекс.
+Также можно выбрать ускоренный вариант Почты России - Авиа - 1 класс почты Росси
+Отправка посылок осуществляется в течении 1, максимум 3х рабочих дней.
+Для заказа пряжи звоните по телефону +7(916)412-75-58
+
+            </p>
+          </div>
+    </div>
+
+    <div class="hero-2" style="background-image: url('assets/photo_1.jpg');">
+    <div><a id="feedback"></a></div>
+     <div class="container">
+        <div class="row justify-content-center text-center align-items-center">
+          <div class="col-md-8">
+            <h2 style="font-size: 3rem;">проверено временем</h2>
+            <span class="sub-title" style="font-size: 2.5rem;">Уже 5 лет с вами</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="owl-carousel owl-slide-3 owl-slide">
+        
+          <blockquote class="testimony">
+            <img src="assets/person_1.jpg" alt="Фото">
+            <p>&ldquo;Когда я вплотную занялась вязанием (появилось много свободного времени), я обратила внимание на пряжу Alize. Она очень популярна среди вязальщиц и есть практически в любом магазине пряжи.Из плюсов хочу отметить доступную цену , удобную толщину нити, которая позволяет вязать много разных моделей, хорошая цветовая палитра, а также меланжевые оттенки.Расход у пряжи небольшой: на взрослую шапку с отворотом у меня уходит 70-80 грамм. Вяжу спицами №4..&rdquo;</p>
+            <p class="small text-primary">&mdash; Марина Ли</p>
+          </blockquote>
+          <blockquote class="testimony">
+            <img src="assets/person_2.jpg" alt="Фото">
+            <p>&ldquo;Клубочки. Очень приятные, хорошо смотанные моточки. Огромнейшая цветовая палитра, которая пополняется. Можно найти очень яркие оттенки, пастельные, темные, много видов синих и голубых, цвет джинса, они прекрасно между собой сочетаются. Эти ниточки - мой восторг! Обожаю их держать в руках, релаксирую за вязанием, особенно ночами.&rdquo;</p>
+            <p class="small text-primary">&mdash; Евгения Кабердеева</p>
+          </blockquote>
+          <blockquote class="testimony">
+            <img src="assets/person_3.jpg" alt="Фото">
+            <p>&ldquo;Данная пряжа подходит для вязания детских вещей, хотя я связала из нее несколько свитеров, но просто у меня осталась куча этой пряжи от пледа. Детям она подойдет именно из-за ее мягкости, и того, что не линяет.Так же из нее хорошо вяжутся игрушки, пледы и прочие вещи, которые будут часто на себе испытывать так называемую механическую нагрузку&rdquo;</p>
+            <p class="small text-primary">&mdash; Анна Власова</p>
+          </blockquote>
+       
+        </div>
+      </div>
+    </div>
+  
+
+    
+    <div class="footer">
+      <div><a id="footer"></a></div>
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="social-icons">
+              <a href="https://vk.com/homa_yarn"><span class="icon-facebook"></span></a>
+              <a href="#"><span class="icon-twitter"></span></a>
+              <a href="#"><span class="icon-youtube"></span></a>
+              <a href="https://www.instagram.com/homa_yarn"><span class="icon-instagram"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="copyright">
+                <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+                </p>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+  <!-- .site-wrap -->
+
+
+  <!-- loader -->
+  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

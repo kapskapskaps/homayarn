@@ -1,0 +1,7 @@
+/.idea/*
+env/
+.vscode/
+index.html
+pyvevn.cfg
+Lib/
+Scripts/
